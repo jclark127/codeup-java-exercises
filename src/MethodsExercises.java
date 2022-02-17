@@ -32,16 +32,33 @@ public class MethodsExercises {
     }
 
     public static void diceRoller() {
-        System.out.println("Enter the amount of sides:");
-        int sides = 0;
-        try {
-            sides = sc.nextInt();
-        } catch (Exception e) {
-            System.out.println("Input must be an integer.");
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println("Enter the amount of sides:");
+            int sides = 0;
+            try {
+                sides = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Input must be an integer.");
+            }
+            System.out.println("Dice 1 : " + (int) Math.floor(Math.random() * (sides - 1 + 1) + 1));
+            System.out.println("Dice 2 : " + (int) Math.floor(Math.random() * (sides - 1 + 1) + 1));
+            sc.nextLine();
+            System.out.println("Continue y/n ?");
+            String entry = sc.nextLine();
+            if (entry.equalsIgnoreCase("n")) {
+                keepGoing = false;
+                System.out.println("Program Exited");
+            } else if (entry.equalsIgnoreCase("y")) {
+                diceRoller();
+            } else {
+                System.out.println("Must enter valid input. Restarting Dice Roller... ");
+            }
+
         }
-        System.out.println("Dice 1 : " + Math.random() * sides);
-        System.out.println("Dice 2 : " + Math.random() * sides);
     }
+
+
 
 
     public static void addition(int a, int b) {
