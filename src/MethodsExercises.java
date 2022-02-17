@@ -2,6 +2,7 @@ import java.sql.SQLOutput;
 import java.util.*;
 
 public class MethodsExercises {
+    public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 //        int a = getInteger(1, 10);
@@ -15,13 +16,33 @@ public class MethodsExercises {
 //        division(a,b);
 //        System.out.println();
 //        modulus(a,b);
-        int factorialNumber = getInteger(1, 10);
-        System.out.print(factorialNumber + "! = ");
-        for(int i = 1; i < factorialNumber; i++){
-            System.out.print(i + " x ");
-        }
-        System.out.println(" = " + factorial(factorialNumber));
+//        int factorialNumber = getInteger(1, 10);
+//        String output = "";
+//        System.out.print(factorialNumber + "! = ");
+//        for(int i = 1; i <=factorialNumber; i++){
+//            if(i != factorialNumber) {
+//                System.out.print(i + " x ");
+//            } else {
+//                System.out.print(i);
+//            }
+//        }
+//        System.out.println(" = " + factorial(factorialNumber));
+        diceRoller();
+
     }
+
+    public static void diceRoller() {
+        System.out.println("Enter the amount of sides:");
+        int sides = 0;
+        try {
+            sides = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("Input must be an integer.");
+        }
+        System.out.println("Dice 1 : " + Math.random() * sides);
+        System.out.println("Dice 2 : " + Math.random() * sides);
+    }
+
 
     public static void addition(int a, int b) {
         System.out.println("Your numbers added:");
@@ -61,7 +82,6 @@ public class MethodsExercises {
         int number = 0;
         while (keepGoing) {
             System.out.println("Enter a number between 1-10");
-            Scanner sc = new Scanner(System.in);
             try {
                 number = Integer.parseInt(sc.nextLine());
                 if (number < min || number > max) {
@@ -82,4 +102,6 @@ public class MethodsExercises {
         }
         return a * factorial(a - 1);
     }
+
+
 }
