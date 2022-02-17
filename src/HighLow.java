@@ -39,7 +39,6 @@ public class HighLow {
     public static void guessingGame() {
         boolean keepGoing = true;
         int rand = (int) Math.floor(Math.random() * (100 - 1 + 1) + 1);
-        System.out.println(rand);
         int count = 1;
         while (keepGoing) {
             System.out.println("Guess a number between 1 - 100");
@@ -61,8 +60,8 @@ public class HighLow {
                 keepGoing = playAgain();
             }
             if (keepGoing) {
-                System.out.println(10 - count + " guesses remaining.");
                 count++;
+                System.out.println(11 - count + " guesses remaining.");
             }
         }
     }
