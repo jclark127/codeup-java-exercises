@@ -41,13 +41,11 @@ public class HighLow {
         int rand = (int) Math.floor(Math.random() * (100 - 1 + 1) + 1);
         int count = 1;
         while (keepGoing) {
-            System.out.println("Guess a number between 1 - 100");
             System.out.println();
             int guess = getUserInt();
             if (count == 10) {
                 System.out.println("TOO MANY GUESSES! The answer was: " + rand);
                 System.out.println();
-                sc.nextLine();
                 keepGoing = playAgain();
             } else if (guess > rand) {
                 System.out.println("LOWER");
@@ -56,7 +54,6 @@ public class HighLow {
             } else if (guess == rand) {
                 System.out.println("NAILED IT in " + count + " guess(es).");
                 System.out.println();
-                sc.nextLine();
                 keepGoing = playAgain();
             }
             if (keepGoing) {
@@ -79,11 +76,18 @@ public class HighLow {
 
 
     public static int getUserInt() {
+        boolean keepGoing = true;
         int num = 0;
-        try {
-            num = sc.nextInt();
-        } catch (Exception e) {
-            System.out.println("Must be a valid input.");
+        while(keepGoing) {
+            System.out.println("Guess a number between 1 - 100");
+            try {
+                num = sc.nextInt();
+                keepGoing = false;
+            } catch (Exception e) {
+                System.out.println("Please Enter a valid input.");
+            }
+            sc.nextLine();
+            System.out.println();
         }
         return num;
     }
