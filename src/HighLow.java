@@ -30,6 +30,7 @@ public class HighLow {
                     System.out.println();
                     System.out.println("Please make a valid selection.");
                     System.out.println();
+                    mainMenu();
                     break;
             }
         }
@@ -43,7 +44,7 @@ public class HighLow {
         while (keepGoing) {
             System.out.println();
             int guess = getUserInt();
-            if (count == 10) {
+            if (count > 10) {
                 System.out.println("TOO MANY GUESSES! The answer was: " + rand);
                 System.out.println();
                 keepGoing = playAgain();
@@ -98,10 +99,12 @@ public class HighLow {
             System.out.println("Play again? y/n");
             String entry = sc.nextLine();
             if (entry.equalsIgnoreCase("y")) {
+                getRules();
                 guessingGame();
                 return false;
             } else if(entry.equalsIgnoreCase("n")) {
-                System.out.println("Thanks for playing!! Exiting program...");
+                System.out.println("Thanks for playing!! Returning to the main menu...");
+                mainMenu();
                 return false;
             } else {
                 System.out.println("Not a valid entry.");
