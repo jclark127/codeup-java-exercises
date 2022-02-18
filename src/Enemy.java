@@ -13,6 +13,10 @@ public class Enemy {
     }
 
     public void takeDamage (int damage){
+        if (damage > 20){
+            System.out.print("Critical hit!! ");
+        }
+        System.out.println("You attacked dealing " + damage + " points of damage.");
         health -= damage;
     }
 

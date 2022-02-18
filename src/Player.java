@@ -21,6 +21,10 @@ public class Player {
     }
 
     public void takeDamage(int damage) {
+        if (damage > 8){
+            System.out.print("Critical hit!! ");
+        } else if(!flee)
+        System.out.println("Enemy attacked dealing " + damage + " points of damage.");
         health -= damage;
     }
 }
