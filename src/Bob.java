@@ -10,9 +10,9 @@ public class Bob {
             entry = sc.nextLine();
             if (entry.equals("")) {
                 System.out.println("Fine be that way");
-            } else if (entry.charAt(entry.length() - 1) == '?') {
+            } else if (entry.endsWith("?")) {
                 System.out.println("Sure");
-            } else if (entry.charAt(entry.length() - 1) == '!') {
+            } else if (entry.endsWith("!")) {
                 System.out.println("Whoa, chill out.");
             } else {
                 System.out.println("Whatever");
