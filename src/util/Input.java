@@ -12,15 +12,21 @@ public class Input {
     }
 
     public boolean yesNo(String prompt) {
-        System.out.println(prompt);
-        String yorn = sc.nextLine();
-        if (yorn.equalsIgnoreCase("y")) {
-            return true;
-        } else if (!yorn.equalsIgnoreCase("n")) {
-            System.out.println("Please enter a valid selection");
-            yesNo(prompt);
+        boolean trueFalse = true;
+        boolean keepGoing = true;
+        while (keepGoing) {
+            System.out.println(prompt);
+            String yorn = sc.nextLine();
+            if (yorn.equalsIgnoreCase("y")) {
+            keepGoing = false;
+            } else if (yorn.equalsIgnoreCase("n")){
+                trueFalse = false;
+                keepGoing = trueFalse;
+            } else {
+                System.out.println("Please enter a valid response.");
+            }
         }
-        return false;
+        return trueFalse;
     }
 
     public int getInt(int min, int max, String prompt) {
@@ -60,7 +66,7 @@ public class Input {
     }
 
     public double getDouble(String prompt) {
-        sc.nextLine();
+//        sc.nextLine();
         System.out.println(prompt);
         double n1 = Double.parseDouble(sc.nextLine());
         return n1;
