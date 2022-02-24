@@ -5,10 +5,12 @@ import java.util.ArrayList;
 public class Student {
     public String name;
     public ArrayList<Integer> grades;
+    public String gitHubUser;
 
-    public Student (String name) {
+    public Student (String name, String gitHubUser) {
         this.name = name;
         grades = new ArrayList<>();
+        this.gitHubUser = gitHubUser;
     }
 
     public String getName (){
@@ -29,13 +31,5 @@ public class Student {
         return avg;
     }
 
-    public static void main(String[] args) {
-        Student student = new Student("Jon");
-        student.addGrade(100);
-        student.addGrade(90);
-        student.addGrade(99);
-        System.out.printf("student.getAverage() = %.2f%n", student.getAverage());
-        student.addGrade(98);
-        System.out.printf("student.getAverage() = %.2f%n", student.getAverage());
-    }
+
 }
