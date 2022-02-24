@@ -77,8 +77,8 @@ public class MoviesApplication {
     }
 
     public static void getAllMovies(Movie[] moviesArr) {
-        for (int i = 0; i < moviesArr.length; i ++){
-            System.out.println(moviesArr[i].toString());
+        for (Movie movie : moviesArr) {
+            System.out.println(movie);
         }
     }
 
