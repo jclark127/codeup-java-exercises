@@ -10,7 +10,6 @@ public class MoviesApplication {
     public static Scanner s = new Scanner(System.in);
 
 
-
     public static void main(String[] args) {
         movieApp();
     }
@@ -47,23 +46,23 @@ public class MoviesApplication {
                     getAllMovies(moviesArr);
                     break;
                 case 2:
-                    getMoviesFiltered(moviesArr,"animated");
+                    getMoviesFiltered(moviesArr, "animated");
                     break;
                 case 3:
-                    getMoviesFiltered(moviesArr,"drama");
+                    getMoviesFiltered(moviesArr, "drama");
                     break;
                 case 4:
-                    getMoviesFiltered(moviesArr,"horror");
+                    getMoviesFiltered(moviesArr, "horror");
                     break;
                 case 5:
-                    getMoviesFiltered(moviesArr,"scifi");
+                    getMoviesFiltered(moviesArr, "scifi");
                     break;
                 case 6:
-                    getMoviesFiltered(moviesArr,"musical");
+                    getMoviesFiltered(moviesArr, "musical");
                     break;
                 case 7:
                     moviesArr = updateArray(moviesArr, createMovie());
-                    System.out.println(moviesArr[moviesArr.length -1].toString());
+                    System.out.println(moviesArr[moviesArr.length - 1].toString());
                     break;
                 default:
                     System.out.println("That is not one of the choices");
@@ -83,17 +82,17 @@ public class MoviesApplication {
     }
 
     public static void getMoviesFiltered(Movie[] moviesArr, String query) {
-        for (Movie movie : moviesArr){
-            if (movie.getCategory().equalsIgnoreCase(query)){
+        for (Movie movie : moviesArr) {
+            if (movie.getCategory().equalsIgnoreCase(query)) {
                 System.out.println(movie);
             }
         }
     }
 
-    public static int getUserEntry(){
+    public static int getUserEntry() {
         int entry = 0;
         boolean keepGoing = true;
-        while(keepGoing) {
+        while (keepGoing) {
             try {
                 entry = sc.getInt("Please make your selection");
                 keepGoing = false;
@@ -105,7 +104,7 @@ public class MoviesApplication {
         return entry;
     }
 
-    public static Movie createMovie(){
+    public static Movie createMovie() {
         String name = sc.getString("Enter the title of a movie.");
         System.out.println();
         String category = sc.getString("Enter the category");
@@ -113,12 +112,12 @@ public class MoviesApplication {
         return movie;
     }
 
-    public static Movie[] updateArray(Movie[] moviesArr,Movie movie){
-        Movie[] updatedArray = new Movie[moviesArr.length +1];
-        for (int i = 0; i < moviesArr.length; i++){
+    public static Movie[] updateArray(Movie[] moviesArr, Movie movie) {
+        Movie[] updatedArray = new Movie[moviesArr.length + 1];
+        for (int i = 0; i < moviesArr.length; i++) {
             updatedArray[i] = moviesArr[i];
         }
-        updatedArray[updatedArray.length -1] = movie;
+        updatedArray[updatedArray.length - 1] = movie;
         System.out.println("Movie added.");
         return updatedArray;
     }
