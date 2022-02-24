@@ -49,12 +49,9 @@ public class MethodsExercises {
             if (entry.equalsIgnoreCase("n")) {
                 keepGoing = false;
                 System.out.println("Program Exited");
-            } else if (entry.equalsIgnoreCase("y")) {
-                diceRoller();
-            } else {
+            } else if (!entry.equalsIgnoreCase("y")) {
                 System.out.println("Must enter valid input. Restarting Dice Roller... ");
             }
-
         }
     }
 

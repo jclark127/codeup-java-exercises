@@ -34,7 +34,7 @@ public class Input {
         int n1 = 0;
         while (keepGoing) {
             System.out.println(prompt);
-            n1 = sc.nextInt();
+            n1 = Integer.parseInt(sc.nextLine());
             if (n1 > max || n1 < min) {
                 System.out.println("Please enter a valid choice");
             } else {
