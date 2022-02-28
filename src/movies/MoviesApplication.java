@@ -40,7 +40,6 @@ public class MoviesApplication {
             switch (entry) {
                 case 0:
                     keepGoing = false;
-                    System.out.println("Program Exited.");
                     break;
                 case 1:
                     getAllMovies(moviesArr);
@@ -113,9 +112,10 @@ public class MoviesApplication {
 
     public static Movie[] updateArray(Movie[] moviesArr, Movie movie) {
         Movie[] updatedArray = new Movie[moviesArr.length + 1];
-        for (int i = 0; i < moviesArr.length; i++) {
-            updatedArray[i] = moviesArr[i];
-        }
+//        for (int i = 0; i < moviesArr.length; i++) {
+//            updatedArray[i] = moviesArr[i];
+//        }
+        updatedArray = Arrays.copyOf(moviesArr, moviesArr.length +1);
         updatedArray[updatedArray.length - 1] = movie;
         System.out.println("Movie added.");
         return updatedArray;
