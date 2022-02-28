@@ -28,19 +28,19 @@ public class Square extends Quadrilateral{
 //    public int side;
 //
 //    public Square (int side) {
-//        super(side, side);
+//
 //        this.side = side;
 //    }
 //
 //    @Override
 //    public int getArea() {
 //        System.out.println("Overridden Area method");
-//        return side * side;
+//        return super.getArea();
 //    }
 //
 //    @Override
 //    public int getPerimeter() {
 //        System.out.println("Overridden Perimeter method");
-//        return 4 * side;
+//        return super.getPerimeter;
 //    }
 }

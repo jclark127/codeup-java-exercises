@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class Student {
     public String name;
     public ArrayList<Integer> grades;
-    public String gitHubUser;
 
-    public Student (String name, String gitHubUser) {
+
+    public Student (String name) {
         this.name = name;
         grades = new ArrayList<>();
-        this.gitHubUser = gitHubUser;
     }
 
     public String getName (){
