@@ -5,16 +5,16 @@ public class ServerNameGenerator {
     public String[] adjectives;
     public String[] nouns;
 
-    public ServerNameGenerator(){
-        this.adjectives = new String[] {"Cheeky", "Ironic", "Spicy", "Thicc", "Fancy", "Proud","Tiny","Hairy","Obscure","Festive"};
-        this.nouns = new String[] {"Gorilla", "Olympian", "Accountant", "Developer", "Mechanic", "Barista", "Bartender", "Traitor","Secretary","Pilot"};
+    public ServerNameGenerator() {
+        this.adjectives = new String[]{"Cheeky", "Ironic", "Spicy", "Thicc", "Fancy", "Proud", "Tiny", "Hairy", "Obscure", "Festive"};
+        this.nouns = new String[]{"Gorilla", "Olympian", "Accountant", "Developer", "Mechanic", "Barista", "Bartender", "Traitor", "Secretary", "Pilot"};
     }
 
-    public String getAdjective (int i){
-        return  adjectives[i];
+    public String getAdjective(int i) {
+        return adjectives[i];
     }
 
-    public String getNoun(int i){
+    public String getNoun(int i) {
         return nouns[i];
     }
 
@@ -25,9 +25,9 @@ public class ServerNameGenerator {
         int upper = 10;
         int rng1 = rand.nextInt(upper);
         int rng2 = rand.nextInt(upper);
-        ServerNameGenerator adjectives = new ServerNameGenerator();
+        ServerNameGenerator serverName = new ServerNameGenerator();
         System.out.println("Your server name is:");
-        System.out.println(adjectives.getAdjective(rng1) + "-" + adjectives.getNoun(rng2));
+        System.out.println(serverName.getAdjective(rng1) + "-" + serverName.getNoun(rng2));
 
     }
 }

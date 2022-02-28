@@ -70,7 +70,6 @@ public class MoviesApplication {
 
             }
             System.out.println();
-            keepGoing = sc.yesNo("Would you like to continue? y/n?");
         }
         System.out.println("Program Exited.");
     }
