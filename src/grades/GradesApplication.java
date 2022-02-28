@@ -119,8 +119,6 @@ public class GradesApplication {
 
     public static void getCsvFormat (HashMap<String, Student>students){
         System.out.println("name,github_username,average");
-        students.forEach((key, value) ->{
-            System.out.printf("%s,%s,%.2f%n", value.name, key, value.getAverage());
-        });
+        students.forEach((key, value) -> System.out.printf("%s,%s,%.2f%n", value.name, key, value.getAverage()));
     }
 }
