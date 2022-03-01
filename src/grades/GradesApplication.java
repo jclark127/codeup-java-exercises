@@ -2,7 +2,7 @@ package grades;
 
 import util.Input;
 
-import java.util.HashMap;
+import java.util.*;
 
 public class GradesApplication {
     public static Input sc = new Input();
@@ -52,17 +52,18 @@ public class GradesApplication {
                 case "4":
                     getCsvFormat(students);
                     break;
+                case "5":
+                    recordAttendance(students);
                 case "e":
-                    keepGoing = false;
                     System.out.println("Program Exited.");
-                    break;
+                    keepGoing = false;
                 default:
                     System.out.println("That is not one of the choices.");
                     System.out.println();
                     break;
-
             }
             System.out.println();
+            keepGoing = sc.yesNo("Return to main menu? y/n");
         }
     }
 
@@ -73,6 +74,7 @@ public class GradesApplication {
         System.out.println("2. View all Grades for all Students.");
         System.out.println("3. View student class average.");
         System.out.println("4. Get printable CSV format.");
+        System.out.println("5. Record attendance.");
         System.out.println("E. Exit.");
         System.out.println();
     }
@@ -91,9 +93,9 @@ public class GradesApplication {
             String query = sc.getString("Which Student would you like to see more information on?");
             System.out.println();
             try {
-                System.out.printf("Name: %s - Github username: %s%nCurrent average: %.2f", students.get(query).getName(), query, students.get(query).getAverage());
+                System.out.printf("Name: %s - Github username: %s%nCurrent average: %.2f%nAttendance Percentage: %.2f%%", students.get(query).getName(), query, students.get(query).getAverage(), students.get(query).calculatePercentage());
                 System.out.println();
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Not Found.");
                 System.out.println();
             }
@@ -113,16 +115,51 @@ public class GradesApplication {
         });
     }
 
-    public static void viewClassAverage (HashMap<String, Student> students){
+    public static void viewClassAverage(HashMap<String, Student> students) {
         double sum = 0;
-        for(Student student : students.values()){
+        for (Student student : students.values()) {
             sum += student.getAverage();
         }
         System.out.println("Class average: " + sum / students.size());
     }
 
-    public static void getCsvFormat (HashMap<String, Student>students){
+    public static void getCsvFormat(HashMap<String, Student> students) {
         System.out.println("name,github_username,average");
         students.forEach((key, value) -> System.out.printf("%s,%s,%.2f%n", value.name, key, value.getAverage()));
+    }
+
+    public static void recordAttendance(HashMap<String, Student> students) {
+        boolean keepGoing = true;
+        while (keepGoing) {
+            students.forEach((key, value) -> System.out.printf("|%s| ", key));
+            System.out.println();
+            System.out.println();
+            String query = sc.getString("Which Student would you like to add an attendance record for?");
+            System.out.println();
+            try {
+                String key = sc.getString("Enter the date yyyy-mm-dd");
+                String value = sc.getString("Enter \"A\" for absent and \"P\" for present");
+                if (!value.equalsIgnoreCase("a") || value.equalsIgnoreCase("p")) {
+                    System.out.println("Please enter a valid inout");
+                } else {
+                    students.get(query).attendance.put(key, value);
+                }
+            } catch (Exception e) {
+                System.out.println("Not Found.");
+                System.out.println();
+            }
+//            String date = sc.getString("Enter the date");
+//            for(Student student : students.values()){
+//                String aOrP = sc.getString("Enter attendance for " + student.getName() + " A/P");
+//                if(!aOrP.equalsIgnoreCase("a") || aOrP.equalsIgnoreCase("p")){
+//                    System.out.println("Please enter A or P.");
+//                    keepGoing = false;
+//                } else {
+//                    student.attendance.put(date, aOrP);
+//                    System.out.println(student.attendance.values());
+//                }
+//            }
+            keepGoing = sc.yesNo("Would you like to continue? y/n");
+        }
     }
 }

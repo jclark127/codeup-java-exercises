@@ -1,6 +1,6 @@
 package grades;
 
-import javax.swing.text.html.HTMLWriter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,5 +34,14 @@ public class Student {
         return avg;
     }
 
-
+    public double calculatePercentage(){
+        double days = attendance.size();
+        double absences = 0;
+        for(String absence : attendance.values()) {
+            if (absence.equalsIgnoreCase("A")) {
+                absences++;
+            }
+        }
+        return (days - absences) / days * 100;
+    }
 }

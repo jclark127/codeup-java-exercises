@@ -111,11 +111,11 @@ public class MoviesApplication {
     }
 
     public static Movie[] updateArray(Movie[] moviesArr, Movie movie) {
-        Movie[] updatedArray = new Movie[moviesArr.length + 1];
+//        Movie[] updatedArray = new Movie[moviesArr.length + 1];
 //        for (int i = 0; i < moviesArr.length; i++) {
 //            updatedArray[i] = moviesArr[i];
 //        }
-        updatedArray = Arrays.copyOf(moviesArr, moviesArr.length +1);
+        Movie[] updatedArray = Arrays.copyOf(moviesArr, moviesArr.length +1);
         updatedArray[updatedArray.length - 1] = movie;
         System.out.println("Movie added.");
         return updatedArray;
