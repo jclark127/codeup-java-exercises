@@ -13,6 +13,10 @@ public class GradesApplication {
         Student s2 = new Student("Bill");
         Student s3 = new Student("Laura");
         Student s4 = new Student("Jeron");
+        s1.attendance.put("2022-2-26", "P");
+        s2.attendance.put("2022-2-26", "P");
+        s3.attendance.put("2022-2-26", "P");
+        s4.attendance.put("2022-2-26", "A");
         for (int i = 0; i < 4; i++) {
             s1.addGrade(rng());
             s2.addGrade(rng());

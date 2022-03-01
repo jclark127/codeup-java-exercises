@@ -1,15 +1,19 @@
 package grades;
 
+import javax.swing.text.html.HTMLWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Student {
     public String name;
     public ArrayList<Integer> grades;
+    public HashMap<String, String> attendance;
 
 
     public Student (String name) {
         this.name = name;
         grades = new ArrayList<>();
+        attendance = new HashMap<>();
     }
 
     public String getName (){
