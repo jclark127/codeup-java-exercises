@@ -92,6 +92,7 @@ public class GradesApplication {
             System.out.println();
             String query = sc.getString("Which Student would you like to see more information on?");
             System.out.println();
+                System.out.println("it worked");
             try {
                 System.out.printf("Name: %s - Github username: %s%nCurrent average: %.2f%nAttendance Percentage: %.2f%%", students.get(query).getName(), query, students.get(query).getAverage(), students.get(query).calculatePercentage());
                 System.out.println();
