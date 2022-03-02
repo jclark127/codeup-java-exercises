@@ -1,6 +1,6 @@
 package practiceWithInterfacesAndAbstract;
 
-public abstract class Employee1 {
+public abstract class Employee1 implements DailyWork {
     protected String name;
     protected String department;
 
@@ -25,5 +25,5 @@ public abstract class Employee1 {
         this.department = department;
     }
 
-    public abstract String work ();
+//    public abstract String work ();
 }

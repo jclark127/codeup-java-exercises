@@ -10,4 +10,19 @@ public class Accountant extends Employee1{
     public String work() {
         return "Doing accountant things...";
     }
+
+    @Override
+    public String morningMeeting() {
+        return "Meeting at 10AM";
+    }
+
+    @Override
+    public String lunchTime() {
+        return "Lunch is at 12PM";
+    }
+
+    @Override
+    public int dailyPay() {
+        return 1000;
+    }
 }
