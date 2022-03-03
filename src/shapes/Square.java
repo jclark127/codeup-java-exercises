@@ -41,6 +41,6 @@ public class Square extends Quadrilateral{
 //    @Override
 //    public int getPerimeter() {
 //        System.out.println("Overridden Perimeter method");
-//        return super.getPerimeter;
+//        return super.getPerimeter();
 //    }
 }

@@ -15,4 +15,6 @@ public class InClass228 {
         }
         return sum;
     }
+
+
 }
