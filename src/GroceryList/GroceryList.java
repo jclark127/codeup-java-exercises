@@ -44,7 +44,7 @@ public class GroceryList {
                 case "1":
                     boolean goOn = true;
                     while (goOn) {
-                        createListItem();
+                        groceryList.put(createListItem(), sc.getInt("Enter the quantity."));
                         goOn = sc.yesNo("Add another item?");
                     }
                     break;
@@ -52,7 +52,7 @@ public class GroceryList {
                     viewList();
                     break;
                 case "3":
-                    //modifyListItem();
+                    modifyListItem();
                     break;
                 case "4":
                     keepGoing = false;
@@ -67,33 +67,6 @@ public class GroceryList {
     public static ListItem createListItem() {
         String item = "";
         String category = getCategory();
-//        String category = "";
-//        for (int i = 0; i < categories.length; i++) {
-//            System.out.print(i + 1 + ". " + categories[i] + " ");
-//        }
-//        System.out.println();
-//        System.out.println();
-//        String entry = sc.getString("Select a category.");
-//        switch (entry) {
-//            case "1":
-//                category = categories[0];
-//                break;
-//            case "2":
-//                category = categories[1];
-//                break;
-//            case "3":
-//                category = categories[2];
-//                break;
-//            case "4":
-//                category = categories[3];
-//                break;
-//            case "5":
-//                category = categories[4];
-//                break;
-//            default:
-//                System.out.println("That is not one of the choices.");
-//                break;
-//        }
         item = sc.getString("Enter the name of the item you are adding.");
         return new ListItem(item, category);
     }
@@ -103,7 +76,31 @@ public class GroceryList {
     }
 
     public static void modifyListItem() {
-
+        boolean keepGoing = true;
+        while (keepGoing){
+            modifySubMenu();
+            String entry = sc.getString("Please make a selection.");
+            switch (entry) {
+                case "1":
+                    //updateItemQuantity();
+                    break;
+                case "2":
+                    //updateItemName();
+                    break;
+                case "3":
+                    //updateItemCategory();
+                    break;
+                case "4":
+                    //removeItem();
+                    break;
+                case "5":
+                    keepGoing = false;
+                    break;
+                default:
+                    System.out.println("That is not one of the choices.");
+                    break;
+            }
+        }
     }
 
     public static String getCategory(){
@@ -137,4 +134,14 @@ public class GroceryList {
         return category;
     }
 
+    public static void updateItemQuantity(){
+        groceryList.forEach((key, value) ->{
+            System.out.print(key.getItem() + " ");
+        });
+        try {
+            String query = sc.getString("Which item would you like to update the quantity for?");
+        } catch (Exception e){
+            System.out.println("Not found");
+        }
+    }
 }
