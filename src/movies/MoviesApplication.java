@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class MoviesApplication {
     public static Input sc = new Input();
-    public static Scanner s = new Scanner(System.in);
+
 
 
     public static void main(String[] args) {
@@ -111,10 +111,6 @@ public class MoviesApplication {
     }
 
     public static Movie[] updateArray(Movie[] moviesArr, Movie movie) {
-//        Movie[] updatedArray = new Movie[moviesArr.length + 1];
-//        for (int i = 0; i < moviesArr.length; i++) {
-//            updatedArray[i] = moviesArr[i];
-//        }
         Movie[] updatedArray = Arrays.copyOf(moviesArr, moviesArr.length +1);
         updatedArray[updatedArray.length - 1] = movie;
         System.out.println("Movie added.");

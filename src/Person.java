@@ -35,5 +35,6 @@ public class Person {
         p4.setName("Bill"); //changes value of both p3 and p4
         System.out.println(p3.getName()); // returns bill
         System.out.println(p4.getName()); // returns bill
+        p3.sayHello();
     }
 }
