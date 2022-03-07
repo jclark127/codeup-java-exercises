@@ -4,6 +4,10 @@ public class ListItem {
     public String item;
     public String category;
 
+    public ListItem(){
+        item = "";
+        category = "";
+    }
 
     public ListItem(String item, String category) {
         this.item = item;

@@ -3,6 +3,7 @@ package GroceryList;
 import util.Input;
 
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class GroceryList {
     public static Input sc = new Input();
@@ -10,10 +11,7 @@ public class GroceryList {
     public static HashMap<ListItem, Integer> groceryList = new HashMap<>();
 
     public static void main(String[] args) {
-        groceryList.put(createListItem(), sc.getInt("Enter quantity."));
-        viewList();
-        updateItemCategory();
-        viewList();
+        runProgram();
     }
 
     public static void mainMenuPrompt() {
@@ -163,4 +161,21 @@ public class GroceryList {
         });
     }
 
+//    public static void removeItem (){
+//        groceryList.forEach((key, value) -> {
+//            System.out.println(key.getItem() + " ");
+//        });
+//        System.out.println();
+//        String query = sc.getString("Which item would you like to remove?");
+//        AtomicReference<String> itemName = new AtomicReference<>("");
+//        AtomicReference<ListItem> remove = new AtomicReference<ListItem>(new ListItem());
+//        groceryList.forEach((key,value) ->{
+//            if (key.getItem().equalsIgnoreCase(query)){
+//                itemName.set(key.item);
+//                remove.set(key);
+//            }
+//        });
+//        groceryList.remove();
+//
+//    }
 }
