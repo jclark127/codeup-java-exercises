@@ -12,6 +12,8 @@ public class GroceryList {
     public static void main(String[] args) {
         groceryList.put(createListItem(), sc.getInt("Enter quantity."));
         viewList();
+        updateItemCategory();
+        viewList();
     }
 
     public static void mainMenuPrompt() {
@@ -27,10 +29,9 @@ public class GroceryList {
     public static void modifySubMenu() {
         System.out.println();
         System.out.println("1. Change Item Quantity.");
-        System.out.println("2. Change Name of item.");
-        System.out.println("3. Change Item Category.");
-        System.out.println("4. Remove Item.");
-        System.out.println("5. Return to main menu.");
+        System.out.println("2. Change Item Category.");
+        System.out.println("3. Remove Item.");
+        System.out.println("4. Return to main menu.");
         System.out.println();
     }
 
@@ -77,23 +78,20 @@ public class GroceryList {
 
     public static void modifyListItem() {
         boolean keepGoing = true;
-        while (keepGoing){
+        while (keepGoing) {
             modifySubMenu();
             String entry = sc.getString("Please make a selection.");
             switch (entry) {
                 case "1":
-                    //updateItemQuantity();
+                    updateItemQuantity();
                     break;
                 case "2":
-                    //updateItemName();
+                    updateItemCategory();
                     break;
                 case "3":
-                    //updateItemCategory();
-                    break;
-                case "4":
                     //removeItem();
                     break;
-                case "5":
+                case "4":
                     keepGoing = false;
                     break;
                 default:
@@ -103,7 +101,7 @@ public class GroceryList {
         }
     }
 
-    public static String getCategory(){
+    public static String getCategory() {
         String category = "";
         for (int i = 0; i < categories.length; i++) {
             System.out.print(i + 1 + ". " + categories[i] + " ");
@@ -134,14 +132,35 @@ public class GroceryList {
         return category;
     }
 
-    public static void updateItemQuantity(){
-        groceryList.forEach((key, value) ->{
+    public static void updateItemQuantity() {
+        System.out.println();
+        System.out.println("Current grocery list: ");
+        groceryList.forEach((key, value) -> {
             System.out.print(key.getItem() + " ");
         });
-        try {
-            String query = sc.getString("Which item would you like to update the quantity for?");
-        } catch (Exception e){
-            System.out.println("Not found");
-        }
+        String query = "";
+        System.out.println();
+        query = sc.getString("Which item would you like to update the quantity for?");
+        int newQuant = sc.getInt("Enter the new quantity.");
+        String finalQuery = query;
+        groceryList.forEach((key, value) -> {
+            if (key.getItem().equalsIgnoreCase(finalQuery)) {
+                groceryList.replace(key, newQuant);
+            }
+        });
     }
+
+    public static void updateItemCategory() {
+        groceryList.forEach((key, value) -> {
+            System.out.println(key.getItem() + " ");
+        });
+        System.out.println();
+        String query = sc.getString("Which item would you like to update the category for?");
+        groceryList.forEach((key, value) -> {
+            if (key.getItem().equalsIgnoreCase(query)) {
+                key.setCategory(getCategory());
+            }
+        });
+    }
+
 }
