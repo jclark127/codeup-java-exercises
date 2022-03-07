@@ -18,8 +18,8 @@ public class Input {
             System.out.println(prompt);
             String yorn = sc.nextLine();
             if (yorn.equalsIgnoreCase("y")) {
-            keepGoing = false;
-            } else if (yorn.equalsIgnoreCase("n")){
+                keepGoing = false;
+            } else if (yorn.equalsIgnoreCase("n")) {
                 trueFalse = false;
                 keepGoing = trueFalse;
             } else {
@@ -46,7 +46,12 @@ public class Input {
 
     public int getInt(String prompt) {
         System.out.println(prompt);
-        int n1 = Integer.parseInt(sc.nextLine());
+        int n1 = 0;
+        try {
+            n1 = Integer.valueOf(getString(prompt));
+        } catch (Exception e) {
+            System.out.println("Not a valid input");
+        }
         return n1;
     }
 
@@ -68,7 +73,12 @@ public class Input {
     public double getDouble(String prompt) {
 //        sc.nextLine();
         System.out.println(prompt);
-        double n1 = Double.parseDouble(sc.nextLine());
+        double n1 = 0.00;
+        try {
+            n1 = Double.valueOf(getString(prompt));
+        } catch (Exception e) {
+            System.out.println("Not a valid input.");
+        }
         return n1;
     }
 
