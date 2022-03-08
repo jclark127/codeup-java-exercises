@@ -12,14 +12,14 @@ public class ExceptionsTest {
             System.out.println(rE.getLocalizedMessage());
             System.out.println(rE.getCause());
             rE.printStackTrace();
+        } finally {
+            System.out.println("This code compiles because we handle the exception.");
+            test();
         }
-
-        System.out.println("This code compiles because we handle the exception.");
-        test();
     }
 
     public static void test (){
         System.out.println("this method shows up because we handle the error.");
-        System.out.println("But why before the stack trace.");
+        System.out.println("But why before the stack trace?");
     }
 }
