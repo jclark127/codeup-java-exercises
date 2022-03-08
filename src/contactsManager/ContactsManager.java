@@ -90,26 +90,25 @@ public class ContactsManager {
         String name;
         String number;
         name = sc.getString("Enter entry name.");
-        if (names.contains(name)) {
-            if (sc.yesNo("There is already an entry for " + name + ", would you like to overwrite entry?")) {
+        if (names.contains(name.toLowerCase())) {
+            if (sc.yesNo("There is already an entry for " + name + ", would you like to overwrite entry? y/n?")) {
                 number = sc.getString("Enter phone number for " + name + ".");
-                int i = names.indexOf(name);
+                int i = names.indexOf(name.toLowerCase());
                 numbers.remove(i);
                 numbers.add(i,number);
+                System.out.println("Contact updated.");
             }
         } else {
             number = sc.getString("Enter entry phone number.");
             names.add(name);
             numbers.add(number);
         }
-
-
     }
 
     public static void searchEntries() {
         System.out.println();
-        String query = sc.getString("Enter the name you would like to look for.");
-        int i = names.indexOf(query);
+        String query = sc.getString("Enter the name you would like to look for.").toLowerCase();
+        int i = names.indexOf(query.toLowerCase());
         System.out.println();
         if (i != -1) {
             System.out.println();

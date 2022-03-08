@@ -49,7 +49,7 @@ public class Input {
         int n1 = 0;
         try {
             n1 = Integer.valueOf(getString(prompt));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             System.out.println("Not a valid input");
         }
         return n1;
@@ -76,7 +76,7 @@ public class Input {
         double n1 = 0.00;
         try {
             n1 = Double.valueOf(getString(prompt));
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             System.out.println("Not a valid input.");
         }
         return n1;
