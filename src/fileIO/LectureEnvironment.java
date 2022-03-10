@@ -72,5 +72,8 @@ public class LectureEnvironment {
             newList.add(line);
         }
         System.out.println("newList = " + newList);
+
+        Files.write(dataAndFile,newList);
+
     }
 }

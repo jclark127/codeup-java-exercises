@@ -3,6 +3,6 @@ whiskey
 steak
 potatoes
 candy
-cheese
+vegan cheese
 otherCheese
 thirdCheese
