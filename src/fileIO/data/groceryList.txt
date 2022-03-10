@@ -1,0 +1,8 @@
+coffee
+whiskey
+steak
+potatoes
+candy
+cheese
+otherCheese
+thirdCheese
