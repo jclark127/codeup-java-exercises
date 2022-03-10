@@ -17,7 +17,7 @@ public class ContactsManager {
     public static Input sc = new Input();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // main
         try {
             readFiles();
             runProgram();
@@ -29,7 +29,7 @@ public class ContactsManager {
     }
 
 
-    public static void readFiles() throws ArrayIndexOutOfBoundsException {
+    public static void readFiles() throws ArrayIndexOutOfBoundsException { //reads data (if any) from text file and populates list
         Path file = Paths.get("src/contactsManager/contacts.txt");
         Charset charset = StandardCharsets.US_ASCII;
         try (BufferedReader reader = Files.newBufferedReader(file, charset)) {
@@ -47,7 +47,7 @@ public class ContactsManager {
         }
     }
 
-    public static void runProgram() {
+    public static void runProgram() { //gets user entry for main menu prompt and executes corresponding function
         boolean keepGoing = true;
         while (keepGoing) {
             mainMenu();
@@ -76,7 +76,7 @@ public class ContactsManager {
         }
     }
 
-    public static void mainMenu() {
+    public static void mainMenu() {  //prompt for main menu
         System.out.println();
         System.out.println("--------------- Contacts Manager ---------------");
         System.out.println("1. View Contacts");
@@ -87,7 +87,7 @@ public class ContactsManager {
         System.out.println();
     }
 
-    public static void viewContacts() throws IndexOutOfBoundsException {
+    public static void viewContacts() throws IndexOutOfBoundsException { //lists all contacts in phonebook
         try {
             System.out.println();
             System.out.printf("Name     \t | \t\tPhone number%n");
@@ -101,7 +101,7 @@ public class ContactsManager {
         }
     }
 
-    public static void addEntry() {
+    public static void addEntry() { // adds an entry in the phone book
         String name;
         String number;
         name = sc.getString("Enter entry name.");
@@ -123,7 +123,7 @@ public class ContactsManager {
         }
     }
 
-    public static void searchEntries() {
+    public static void searchEntries() { // searches entries in phonebook by name
         System.out.println();
         String query = sc.getString("Enter the name you would like to look for.").toLowerCase();
         int i = names.indexOf(query.toLowerCase());
@@ -138,7 +138,7 @@ public class ContactsManager {
         }
     }
 
-    public static void deleteEntry() throws IndexOutOfBoundsException {
+    public static void deleteEntry() throws IndexOutOfBoundsException { //removes entries by name
         System.out.println();
         for (String name : names) {
             System.out.print(name + " ");
@@ -155,7 +155,7 @@ public class ContactsManager {
         }
     }
 
-    public static void writeFiles() {
+    public static void writeFiles() { // saves entries in phonebook to .txt file
         Path file = Paths.get("src/contactsManager/contacts.txt");
         Charset charset = StandardCharsets.US_ASCII;
         String line;
@@ -170,7 +170,7 @@ public class ContactsManager {
         }
     }
 
-    public static String phoneNumberFormatter(String number) {
+    public static String phoneNumberFormatter(String number) { // adds a dash to phone number
         if (number.length() == 7) {
             number = number.replaceFirst("((\\d{3})(\\d+))", "$2-$3");
         } else if (number.length() == 10) {
